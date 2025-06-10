@@ -1,0 +1,39 @@
+{
+    "project": {
+        "compiler": {
+            "extension": "php",
+            "minimum_version": "8.0",
+            "maximum_version": "8.2"
+        }
+    },
+    "assembly": {
+        "name": "FederationClient",
+        "package": "net.nosial.federation_client",
+        "version": "1.0.0",
+        "uuid": "a5ff0511-fd38-4d01-8e5b-e7c7231a724e"
+    },
+    "build": {
+        "source_path": "src/FederationClient",
+        "default_configuration": "release",
+        "define_constants": {
+            "ASSEMBLY_PACKAGE": "%ASSEMBLY.PACKAGE%",
+            "ASSEMBLY_VERSION": "%ASSEMBLY.VERSION%",
+            "ASSEMBLY_UID": "%ASSEMBLY.UID%"
+        },
+        "configurations": [
+            {
+                "name": "release",
+                "build_type": "ncc",
+                "output": "build/release/%ASSEMBLY.PACKAGE%.ncc"
+            },
+            {
+                "name": "debug",
+                "build_type": "ncc",
+                "output": "build/debug/%ASSEMBLY.PACKAGE%.ncc",
+                "define_constants": {
+                    "DEBUG": "1"
+                }
+            }
+        ]
+    }
+}
